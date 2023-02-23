@@ -1,0 +1,257 @@
+<div class="main-content position-relative max-height-vh-100 h-100">
+  <!-- Navbar -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+    data-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm">
+            <a class="opacity-5 text-dark" href="javascript:;">Pages</a>
+          </li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">
+            Account Name
+          </li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Account Name</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 d-flex align-items-center" id="navbar">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          <div class="input-group input-group-outline">
+          </div>
+        </div>
+        <ul class="navbar-nav justify-content-end">
+          <li class="nav-item d-flex align-items-center">
+          </li>
+          <%- include('partials/logout') -%>
+            <li class="nav-item px-3 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0">
+              </a>
+            </li>
+            <li class="nav-item dropdown pe-2 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                aria-expanded="false">
+              </a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  <div class="container-fluid px-2 px-md-4">
+    <div class="page-header min-height-300 border-radius-xl mt-4"
+      style="background-image: url('https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
+      <span class="mask  bg-gradient-primary  opacity-6"></span>
+    </div>
+    <div class="card card-body mx-3 mx-md-4 mt-n6">
+      <div class="row gx-4 mb-2">
+        <div class="col-auto">
+          <div class="avatar avatar-xl position-relative">
+            <a href="" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <img src="<%= user.profileImage %>" alt="profile_image"
+                class="profile-img w-100 border-radius-lg shadow-sm">
+            </a>
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+              aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="d-flex justify-content-between align-items-center px-3 my-3">
+                    <h5 class="modal-title" id="staticBackdropLabel">Select your Profile here</h5>
+                    <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close"><i
+                        class="fa-solid fa-xmark h4"></i></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col col-lg-3 col-md-4 col-sm-4 col-xs-4">
+                        <button href="" type="submit" class="btn btn-link set-avatar"
+                          data-id="https://res.cloudinary.com/dhrumil-zignuts/image/upload/v1676892898/Screenshot_2023-02-20_at_5.03.28_PM_oxqo6u.png">
+                          <img
+                            src="https://res.cloudinary.com/dhrumil-zignuts/image/upload/v1676892898/Screenshot_2023-02-20_at_5.03.28_PM_oxqo6u.png"
+                            alt="">
+                        </button>
+                      </div>
+                      <div class="col col-lg-3 col-md-4 col-sm-4 col-xs-4">
+                        <button href="" type="submit" class=" btn btn-link set-avatar"
+                          data-id="https://res.cloudinary.com/dhrumil-zignuts/image/upload/v1676892898/Screenshot_2023-02-20_at_5.03.37_PM_f2rzah.png">
+                          <img
+                            src="https://res.cloudinary.com/dhrumil-zignuts/image/upload/v1676892898/Screenshot_2023-02-20_at_5.03.37_PM_f2rzah.png"
+                            alt="">
+                        </button>
+                      </div>
+                      <div class="col col-lg-3 col-md-4 col-sm-4 col-xs-4">
+                        <button href="" type="submit" class="btn btn-link set-avatar"
+                          data-id="https://res.cloudinary.com/dhrumil-zignuts/image/upload/v1676892897/Screenshot_2023-02-20_at_5.02.56_PM_nguyhq.png">
+                          <img
+                            src="https://res.cloudinary.com/dhrumil-zignuts/image/upload/v1676892897/Screenshot_2023-02-20_at_5.02.56_PM_nguyhq.png"
+                            alt="">
+                        </button>
+                      </div>
+                      <div class="col col-lg-3 col-md-4 col-sm-4 col-xs-4">
+                        <button href="" type="submit" class="btn btn-link set-avatar"
+                          data-id="https://res.cloudinary.com/dhrumil-zignuts/image/upload/v1676892897/Screenshot_2023-02-20_at_5.03.15_PM_ctcyvf.png">
+                          <img
+                            src="https://res.cloudinary.com/dhrumil-zignuts/image/upload/v1676892897/Screenshot_2023-02-20_at_5.03.15_PM_ctcyvf.png"
+                            alt="">
+                        </button>
+                      </div>
+                      <div class="col col-lg-3 col-md-4 col-sm-4 col-xs-4">
+                        <button href="" type="submit" class="btn btn-link set-avatar"
+                          data-id="https://res.cloudinary.com/dhrumil-zignuts/image/upload/v1676892897/Screenshot_2023-02-20_at_5.03.05_PM_lfu6zn.png">
+                          <img
+                            src="https://res.cloudinary.com/dhrumil-zignuts/image/upload/v1676892897/Screenshot_2023-02-20_at_5.03.05_PM_lfu6zn.png"
+                            alt="">
+                        </button>
+                      </div>
+                      <div class="col col-lg-3 col-md-4 col-sm-4 col-xs-4">
+                        <button href="" type="submit" class="btn btn-link set-avatar"
+                          data-id="https://res.cloudinary.com/dhrumil-zignuts/image/upload/v1676892897/Screenshot_2023-02-20_at_5.02.47_PM_kggnh6.png">
+                          <img
+                            src="https://res.cloudinary.com/dhrumil-zignuts/image/upload/v1676892897/Screenshot_2023-02-20_at_5.02.47_PM_kggnh6.png"
+                            alt="">
+                        </button>
+                      </div>
+                      <div class="col col-lg-3 col-md-4 col-sm-4 col-xs-4">
+                        <button href="" type="submit" class="btn btn-link set-avatar"
+                          data-id="https://res.cloudinary.com/dhrumil-zignuts/image/upload/v1676892897/Screenshot_2023-02-20_at_5.02.12_PM_hivhpl.png">
+                          <img
+                            src="https://res.cloudinary.com/dhrumil-zignuts/image/upload/v1676892897/Screenshot_2023-02-20_at_5.02.12_PM_hivhpl.png"
+                            alt="">
+                        </button>
+                      </div>
+                      <div class="col col-lg-3 col-md-4 col-sm-4 col-xs-4">
+                        <button href="" type="submit" class="btn btn-link set-avatar"
+                          data-id="https://res.cloudinary.com/dhrumil-zignuts/image/upload/v1676892897/Screenshot_2023-02-20_at_5.02.33_PM_uri2j0.png">
+                          <img
+                            src="https://res.cloudinary.com/dhrumil-zignuts/image/upload/v1676892897/Screenshot_2023-02-20_at_5.02.33_PM_uri2j0.png"
+                            alt="">
+                        </button>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto my-auto">
+          <div class="h-100">
+            <h5 class="mb-1">
+              <%= user.username %>
+            </h5>
+            <p class="mb-0 font-weight-normal text-xxs">
+              change avatar by one click
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="row">
+          <div class="col-12 col-xl-4">
+            <div class="card card-plain h-100">
+              <div class="card-header pb-0 p-3">
+                <div class="row">
+                  <div class="col-md-8 d-flex align-items-center">
+                    <h6 class="mb-0">Profile Information</h6>
+                  </div>
+                  <div class="col-md-4">
+                    <a href="" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+                      <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip"
+                        data-bs-placement="top" title="Edit Profile"></i>
+                    </a>
+                    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false"
+                      tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="d-flex justify-content-between align-items-center px-3 my-3">
+                            <h5 class="modal-title" id="staticBackdropLabel">Edit Profile</h5>
+                            <button type="button" class="btn-close text-dark" data-bs-dismiss="modal"
+                              aria-label="Close"><i class="fa-solid fa-xmark h4"></i></button>
+                          </div>
+                          <div class="modal-body">
+                            <form action="/updateProfile/<%= user.id%>" method="post">
+                              <div class="input-group input-group-lg input-group-outline mb-1">
+                                <input type="text" name="userInfo" class="form-control" placeholder="account name"
+                                  value="<%= user.userInfo%>" required>
+                              </div>
+                              <div class="input-group input-group-lg input-group-outline mb-1">
+                                <input type="text" name="mobileNumber" class="form-control" placeholder="account name"
+                                  value="<%= user.mobileNumber%>" required>
+                              </div>
+                              <div class="input-group input-group-lg input-group-outline mb-1">
+                                <input type="text" name="location" class="form-control" placeholder="account name"
+                                  value="<%= user.location%>" required>
+                              </div>
+                              <div class="input-group input-group-lg input-group-outline mb-1">
+                                <input type="text" name="facebook" class="form-control" placeholder="account name"
+                                  value="<%= user.facebook %>" required>
+                              </div>
+                              <div class="input-group input-group-lg input-group-outline mb-1">
+                                <input type="text" name="instagram" class="form-control" placeholder="account name"
+                                  value="<%= user. instagram %>" required>
+                              </div>
+                              <div class="text-center d-flex justify-content-end">
+                                <button type="submit"
+                                  class="btn btn-lg bg-gradient-primary btn-lg  mt-4 mb-0">Add</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body p-3">
+                <p class="text-sm">
+                  <%= user.userInfo%>
+                </p>
+                <hr class="horizontal gray-light my-4">
+                <ul class="list-group">
+                  <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Username:</strong>
+                    &nbsp; <%= user.username %>
+                  </li>
+                  <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp;
+                    <%= user.mobileNumber %>
+                  </li>
+                  <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp;
+                    <%= user.email %>
+                  </li>
+                  <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Location:</strong> &nbsp;
+                    <%= user.location%>
+                  </li>
+                  <li class="list-group-item border-0 ps-0 pb-0">
+                    <strong class="text-dark text-sm">Social:</strong> &nbsp;
+                    <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="<%= user.facebook%>">
+                      <i class="fab fa-facebook fa-lg"></i>
+                    </a>
+                    <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="<%= user.instagram %>">
+                      <i class="fab fa-instagram fa-lg"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+    $('.set-avatar').on('click', function () {
+      const id = $(this).data('id')
+      const newImg = { url: id }
+      $.ajax({
+        type: 'POST',
+        url: `/updateImage/<%= user.id %>`,
+        data: newImg,
+        success: function () {
+          location.href = '/profile'
+        }
+      })
+    })
+  })
+</script>

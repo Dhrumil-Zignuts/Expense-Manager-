@@ -1,0 +1,293 @@
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+  <!-- Navbar -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+    data-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Dashboard</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          <div class="input-group input-group-outline">
+          </div>
+        </div>
+        <ul class="navbar-nav  justify-content-end">
+          <li class="nav-item d-flex align-items-center">
+          </li>
+          <%- include('partials/logout') -%>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  <div class="container-fluid py-4">
+    <!-- First ROW  -->
+
+    <!-- <div class="row">
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div
+              class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+              <i class="material-icons opacity-10">weekend</i>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">Total Expanse</p>
+              <h4 class="mb-0">₹530</h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer p-3">
+            <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div
+              class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+              <i class="material-icons opacity-10">person</i>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">Total Income</p>
+              <h4 class="mb-0">₹2,300</h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer p-3">
+            <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+3% </span>than last month</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div
+              class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+              <i class="material-icons opacity-10">person</i>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">Total Borrowed</p>
+              <h4 class="mb-0">₹3,462</h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer p-3">
+            <p class="mb-0"><span class="text-danger text-sm font-weight-bolder">-2%</span> than yesterday</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div
+              class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
+              <i class="material-icons opacity-10">weekend</i>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">Total Own</p>
+              <h4 class="mb-0">₹103,430</h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer p-3">
+            <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+5% </span>than yesterday</p>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Second ROW  -->
+
+    <div class="row mt-4">
+      <hr class="dark horizontal my-0">
+      <p class="text-sm mb-4 text-capitalize">User Created Accounts</p>
+      <% for(let i=0; i < allAccounts.length; i++){%>
+        <div class="col-lg-4 col-md-6 mt-4 mb-4">
+          <div class="card z-index-2 ">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                <div class="chart d-flex justify-content-between">
+                  <div>
+                    <h5 class="mb-0 mx-4 text-white">
+                      <%= allAccounts[i].accountName %>
+                    </h5>
+                    <p class="text-sm mx-4 text-white">created By : <%= allAccounts[i].creatorId.username %>
+                    </p>
+                  </div>
+                  <div class="d-flex align-items-center mx-3">
+                    <a type="button" class="edit-btn" data-id = "<%= allAccounts[i].id %>">
+                      <i class="fa-regular fa-pen-to-square mx-1" style="font-size: 25px; color: white;"></i>
+                    </a>
+                    <!-- Model for Update Account Name  -->
+                    <div class="modal fade" id="<%= allAccounts[i].id %>" data-bs-backdrop="static" data-bs-keyboard="false"
+                      tabindex="1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="d-flex justify-content-between align-items-center px-3 my-3">
+                            <h5 class="modal-title" id="staticBackdropLabel2">Edit Account Name</h5>
+                            <button type="button" class="btn-close text-dark" data-bs-dismiss="modal"
+                              aria-label="Close"><i class="fa-solid fa-xmark h4"></i></button>
+                          </div>
+                          <div class="modal-body">
+                            <form action="/updateAccount/<%= allAccounts[i].id %>/<%= allAccounts[i].creatorId %>" method="post">
+                              <div class="input-group input-group-lg input-group-outline mb-1">
+                                <input type="text" minlength="5" maxlength="25" value="<%= allAccounts[i].accountName %>" name="accountName" class="form-control" placeholder="account name"
+                                  required>
+                              </div>
+                              <div class="text-center d-flex justify-content-end">
+                                <button type="submit"
+                                  class="btn btn-lg bg-gradient-primary btn-lg  mt-4 mb-0">Edit</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Model Close  -->
+                    <a type="button" class="dlt-btn"  data-id="delete<%= allAccounts[i].id %>"> 
+                      <i class="fa-regular fa-trash-can mx-1" style="font-size: 25px; color: white;"></i>
+                    </a>
+                    <div class="modal fade" id="delete<%= allAccounts[i].id %>" data-bs-backdrop="static" data-bs-keyboard="false"
+                      tabindex="1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="d-flex justify-content-between align-items-center px-3 my-3">
+                            <h5 class="modal-title" id="staticBackdropLabel2">Delete Account</h5>
+                            <button type="button" class="btn-close text-dark" data-bs-dismiss="modal"
+                              aria-label="Close"><i class="fa-solid fa-xmark h4"></i></button>
+                          </div>
+                          <div class="modal-body">
+                            <p>Are you sure want to delete this Account. You Lost all the users and their trasaction with it</p>
+                            <div class="text-center d-flex justify-content-end">
+                              <a href="/deleteAccount/<%= allAccounts[i].id %>" class="btn btn-lg bg-gradient-primary btn-lg  mt-4 mb-0">Delete</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <div>
+                </div>
+                <div>
+                  <a href="/openedAccount/<%= allAccounts[i].id %>" class="btn bg-gradient-dark">Go to Account</a>
+                </div>
+              </div>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <i class="material-icons text-sm my-auto me-1">schedule</i>
+                <% const date = new Date(allAccounts[i].createdAt) %>
+                <p class="mb-0 text-sm"> <%= date.getDate()%>/<%= date.getMonth()+1 %>/<%= date.getFullYear()%>, at <%= date.getHours()
+                  %>:<%= date.getMinutes() %> </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } %>
+          <hr class="dark horizontal my-0">
+          <p class="text-sm mb-4 text-capitalize">User Participeted in </p>
+          <% if(userAddedInAccounts){ %>
+            <% for(let i=0; i < userAddedInAccounts.length; i++){%>
+              <div class="col-lg-4 col-md-6 mt-4 mb-4">
+                <div class="card z-index-2 ">
+                  <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+                    <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                      <div class="chart d-flex justify-content-between">
+                        <div>
+                          <h5 class="mb-0 mx-4 text-white">
+                            <%= userAddedInAccounts[i].accountName %>
+                          </h5>
+                          <p class="text-sm mx-4 text-white">created By : <%= userAddedInAccounts[i].creatorId%>
+                          </p>
+                        </div>
+                        <div class="d-flex align-items-center mx-3">
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                      </div>
+                      <div>
+                        <a href="/openedAccount/<%= userAddedInAccounts[i].id %>" class="btn bg-gradient-dark">Go to
+                          Account</a>
+                      </div>
+                    </div>
+                    <hr class="dark horizontal">
+                    <div class="d-flex ">
+                      <i class="material-icons text-sm my-auto me-1">schedule</i>
+                      <% const date = new Date(userAddedInAccounts[i].createdAt) %>
+                <p class="mb-0 text-sm"> <%= date.getDate()%>/<%= date.getMonth()+1 %>/<%= date.getFullYear()%>, at <%= date.getHours()
+                  %>:<%= date.getMinutes() %> </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <% } %>
+                <% }else{%>
+                  <div></div>
+                  <% } %>
+
+    </div>
+    <div>
+      <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+        class="fixed-plugin-button btn btn-lg btn-primary" style="
+        position: fixed;
+        bottom: 25px;
+        right: 30px;
+      " data-toggle="modal" data-target="#exampleModalCenter">Add Account</button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="d-flex justify-content-between align-items-center px-3 my-3">
+            <h5 class="modal-title" id="staticBackdropLabel">Add Account</h5>
+            <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close"><i
+                class="fa-solid fa-xmark h4"></i></button>
+          </div>
+          <div class="modal-body">
+            <form action="/addNewAccount" method="post">
+              <div class="input-group input-group-lg input-group-outline mb-1">
+                <input type="text" minlength="5" maxlength="25" name="accountName" class="form-control" placeholder="account name" required>
+              </div>
+              <div class="text-center d-flex justify-content-end">
+                <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg  mt-4 mb-0">Add</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</main>
+
+<script>
+  $(document).ready(function(){
+    $('.edit-btn').on('click', function(){
+      const id = $(this).data('id');
+      $(`#${id}`).appendTo('body').modal('show')
+    })
+
+    $('.dlt-btn').on('click', function(){
+      const id = $(this).data('id');
+      console.log(id);
+      $(`#${id}`).appendTo('body').modal('show')
+    })
+  })
+</script>
