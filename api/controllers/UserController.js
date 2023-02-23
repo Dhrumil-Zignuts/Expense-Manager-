@@ -157,6 +157,7 @@ module.exports = {
         }
     },
 
+    // Rendering Profile Page
     profile : async (req,res)=>{
 
         const userId = req.userId
@@ -175,6 +176,8 @@ module.exports = {
 
         
     },
+
+    // Update Progile Controller
     updateProfile : async (req,res)=>{
         const userId = req.params.userId
 
@@ -188,6 +191,8 @@ module.exports = {
             })
         }
     },
+
+    // Update Image Controller
     updateImage : async (req,res)=>{
         const userId = req.params.userId
         const userImage = req.body.url
