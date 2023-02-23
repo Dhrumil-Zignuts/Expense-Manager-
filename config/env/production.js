@@ -21,7 +21,7 @@
 
 module.exports = {
 
-  hookTimeout : 50000,
+  hookTimeout : 500000,
   /**************************************************************************
   *                                                                         *
   * Tell Sails what database(s) it should use in production.                *
