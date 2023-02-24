@@ -117,7 +117,9 @@ module.exports = {
                 const addUser = await Account.addToCollection(accountId, 'totleUsers', usersId)
                 res.redirect(`/openedAccount/${accountId}`)
             }else{
-                res.send(`You Don't have Access to Add Users in Account`)
+                const message = 'You Do not have Access to Add Users in Account'
+                res.redirect(`/openedAccount/${accountId}?err=${message}`)
+                // res.send(`You Don't have Access to Add Users in Account`)
             }
         } catch (err) {
             res.status(500).json({
@@ -153,11 +155,15 @@ module.exports = {
             const accountInfo = await Account.findOne({id: accountId})
 
             // Condition : Only Admin and Delete Users or User can Delete himSelf Only
-            if (accountInfo.creatorId == userId || deleteuserId == userId){
+            if (accountInfo.creatorId == userId ){
+                const deleteUser = await Account.removeFromCollection(accountId, 'totleUsers').members(deleteuserId);
+                res.redirect(`/getTransactionByUsers/${accountId}`)
+            }else if(deleteuserId == userId){
                 const deleteUser = await Account.removeFromCollection(accountId, 'totleUsers').members(deleteuserId);
                 res.redirect(`/getAllAccounts`)
-            }else{
-                res.send(`You Don't have Acceess to Delete User`)
+            }else {
+                const message = 'You Do not have Acceess to Delete User'
+                res.redirect(`/openedAccount/${accountId}?err=${message}`)
             }
         }catch(err){
             res.status(500).send({

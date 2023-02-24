@@ -39,6 +39,9 @@
   <!-- End Navbar -->
   <div class="row container mx-auto">
     <div class="col-12">
+      <% if(req.query.err){ %>
+        <div class="text-danger align-items-center p-2" id="error" style="border: 2px solid red; border-radius: 5px;margin-bottom: 30px;"><%= req.query.err %></div>
+      <% } %>
       <div class="card my-4">
         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
           <div class="bg-gradient-primary shadow-primary border-radius-lg pt-3 pb-3 d-flex justify-content-between">
@@ -360,6 +363,11 @@
 
 <script>
   $(document).ready(function () {
+      setTimeout(() => {
+        $('#error').hide()
+        console.log(`hide the dive`);
+      }, 3000);
+
     $('.edit-btn').on('click', function () {
       const id = $(this).data('id')
       console.log(id);

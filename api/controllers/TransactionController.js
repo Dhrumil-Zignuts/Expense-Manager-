@@ -114,11 +114,23 @@ module.exports = {
 
             // Condition Admin can Delete Transaction 
             if(accountInfo.creatorId == userId){
-                const deletedTransaction = await Transaction.destroy({id : transactionId })
-                res.redirect(`/openedAccount/${accountId}`)
+                try{
+                    const deletedTransaction = await Transaction.destroy({id : transactionId })
+                    res.redirect(`/openedAccount/${accountId}`)
+                }catch(err){
+                    res.status(500).json({
+                        message : 'could not delete transactions'
+                    })
+                }
             }else{
                 // User can delete his created Transaction
-                const deletedTransaction = await Transaction.destroy({id : transactionId, userId : userId })
+                try{
+                    const deletedTransaction = await Transaction.destroy({id : transactionId, userId : userId })
+                    res.redirect(`/openedAccount/${accountId}`)
+                }catch(err){
+                    const error = 'You Do not have Access to Delete Transaction'
+                    res.redirect(`/openedAccount/${accountId}?err=${error}`)
+                }
             }
         }catch(err){
             res.status(500).json({message : `You Don't have Access to Delete Transaction`, error : err})
@@ -147,10 +159,14 @@ module.exports = {
                 const updateData = await Transaction.updateOne({id : transactionId}).set(updatedData)
                 res.redirect(`/openedAccount/${accountId}`)
             }else{
-
                 // User can edit transaction which are creted by him/her
-                const updateData = await Transaction.updateOne({id : transactionId, userId : userId}).set(updatedData)
-                res.redirect(`/openedAccount/${accountId}`)
+                try{
+                    const updateData = await Transaction.updateOne({id : transactionId, userId : userId}).set(updatedData)
+                    res.redirect(`/openedAccount/${accountId}`)
+                }catch(err){
+                    const error = 'You Do not have Access to Edit Transaction'
+                    res.redirect(`/openedAccount/${accountId}?err=${error}`)
+                }
             }
         }catch(err){
             res.status(500).json({message : `You dont have access to Edit the Transaction`, error : err})
