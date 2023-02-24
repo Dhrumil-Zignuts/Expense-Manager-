@@ -44,9 +44,33 @@ module.exports = {
                         }
                         const newUser = await User.create(data).fetch()
                         try {
+                            console.log(process.env.SECRET_KEY);
+                            console.log(newUser);
                             const token = await jwt.sign({ email: newUser.email, userId: newUser.id }, process.env.SECRET_KEY , { expiresIn: '3h' })
 
-                            sendConfirmationCode();
+                            const transporter = nodemailer.createTransport({
+                                service: 'gmail',
+                                auth: {
+                                    user: "expansemanager2023@gmail.com",
+                                    pass: "sundieblhghfkuzh"
+                                }
+                            })
+                            const number = Math.random().toString().substr(2, 6)
+                            const options = {
+                                from: "expansemanager2023@gmail.com",
+                                to: newUser.email,
+                                subject: "Welcome to Expance Manager..!",
+                                html: `<h3>This is a Verication code..! Do Not Share it with anyone</h3><br><h2>${number}</h2>`
+                            }
+                
+                            transporter.sendMail(options, (err, info) => {
+                                if (err) {
+                                    console.log(`This is a Error while Sending the Email : ${err}`);
+                                    res.send(500, { message: `Error in sending the mail`, error: err })
+                                } else {
+                                    res.redirect(`/confirmation?token=${token}&code=${number}`)
+                                }
+                            })
 
                         } catch (err) {
                             console.log(`New User is Created But Token is not geneated..! ${err}`);
@@ -67,32 +91,6 @@ module.exports = {
         } else {
             console.log(`Already Have an Account on this email Address..!! OR username is Taken..!! `);
             res.status(500).json({ message: 'Already Have an Account on this email Address..!! OR username is Taken..!!' })
-        }
-
-        function sendConfirmationCode(){
-            const transporter = nodemailer.createTransport({
-                service: 'gmail',
-                auth: {
-                    user: "expansemanager2023@gmail.com",
-                    pass: "sundieblhghfkuzh"
-                }
-            })
-            const number = Math.random().toString().substr(2, 6)
-            const options = {
-                from: "expansemanager2023@gmail.com",
-                to: newUser.email,
-                subject: "Welcome to Expance Manager..!",
-                html: `<h3>This is a Verication code..! Do Not Share it with anyone</h3><br><h2>${number}</h2>`
-            }
-
-            transporter.sendMail(options, (err, info) => {
-                if (err) {
-                    console.log(`This is a Error while Sending the Email : ${err}`);
-                    res.send(500, { message: `Error in sending the mail`, error: err })
-                } else {
-                    res.redirect(`/confirmation?token=${token}&code=${number}`)
-                }
-            })
         }
     },
 

@@ -171,15 +171,15 @@
                           <div class="modal-body">
                             <form action="/updateProfile/<%= user.id%>" method="post">
                               <div class="input-group input-group-lg input-group-outline mb-1">
-                                <input type="text" name="userInfo" class="form-control" placeholder="account name"
+                                <input type="text" name="userInfo" minlength="5" maxlength="500" class="form-control" placeholder="account name"
                                   value="<%= user.userInfo%>" required>
                               </div>
                               <div class="input-group input-group-lg input-group-outline mb-1">
-                                <input type="text" name="mobileNumber" class="form-control" placeholder="account name"
+                                <input type="number" min="1000000000" max="9999999999" name="mobileNumber" class="form-control" placeholder="account name"
                                   value="<%= user.mobileNumber%>" required>
                               </div>
                               <div class="input-group input-group-lg input-group-outline mb-1">
-                                <input type="text" name="location" class="form-control" placeholder="account name"
+                                <input type="text" minlength="2" maxlength="25" name="location" class="form-control" placeholder="account name"
                                   value="<%= user.location%>" required>
                               </div>
                               <div class="input-group input-group-lg input-group-outline mb-1">
